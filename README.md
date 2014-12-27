@@ -33,18 +33,18 @@ git clone https://github.com/nak3/openshift-rpmbuild.git
 cp openshift-rpmbuild/openshift-rpmbuild.sh $OPENSHIFT_SRCDIR
 ```
 
-#### 4. Run and build all RPM packages
+##### 4. Run and build all RPM packages
 ```
 ./openshift-rpmbuild.sh buildall
 ```
 
-#### 5. Find rpm packages ./tmp.repos/RPMS/ directory
+##### 5. Find rpm packages ./tmp.repos/RPMS/ directory
 
 
 How to use
 ---------
 
-##### Basic usage help
+##### Basic usage
 
 ````
 eg)
@@ -60,10 +60,10 @@ Options:
 Example debug steps
 ---------
 
-#### 1. buildall RPM packages
+##### 1. buildall RPM packages
 
 ````
-$ ./openshift-rpmbuild.sh -r buildall
+./openshift-rpmbuild.sh -r buildall
 
   .... snip ...
 
@@ -79,13 +79,29 @@ failed to build: 3
 
 ````
 
-##### 2. Check above results and build speific package to see why build failed
+##### 2. Check above results and build speific package
 
 ````
-$ ./openshift-rpmbuild.sh -r openshift-origin-console
+./openshift-rpmbuild.sh -r openshift-origin-console
 
   .... snip ...
 
 error: Failed build dependencies:
 	rubygem-openshift-origin-console is needed by openshift-origin-console-1.16.3-1.el6.noarch
+````
+
+3. Check why did your build fail
+
+
+Extra: Use Dokcer for package build
+---------
+
+###### Use docker file in docker
+
+````
+cd docker && docker build -t openshift_build
+````
+
+````
+docker run -t -i openshift_build_rhel  /bin/bash
 ````
