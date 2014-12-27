@@ -2,11 +2,11 @@
 
 # openshift-rpmbuild.sh
 #
-#   This script is to build openshift RPM packages.
+#   This script is to build openshift RPM/SRPM packages.
 
 SRPM=false
 RESULT_OUTPUT=false
-SRC_HOME=""
+SRC_HOME=`pwd`
 TMPREPOS="tmp.repos"
 SUCCESS_CNT=0
 SUCCESS_PKG=""
@@ -14,7 +14,7 @@ FAIL_CNT=0
 FAIL_PKG=""
 
 showusage() {
-  echo "usage: $0 [options] PKGNAME|ALL"
+  echo "usage: $0 [options] PKGNAME|buildall"
   echo ""
   echo "eg)"
   echo "   \$ $0 openshift-origin-broker"
@@ -51,20 +51,16 @@ do
 done
 shift $((OPTIND - 1))
 
+PKGNAME=$1
+
 if [ $# -lt 1 ];then
   echo "[ERROR] Unsufficient arguments"
   echo ""
   showusage
 fi
 
-if [ "x${SRC_HOME}" = "x" ]; then
-  SRC_HOME=`pwd`
-fi
-
 if [ "${PKGNAME}" = "buildall" ]; then
   PKGNAME="*"
-else
-	PKGNAME=$1
 fi
 
 SPEC_PATH=`find ${SRC_HOME} -name ${PKGNAME}.spec -print -o -path "*${TMPREPOS}*" -prune`
