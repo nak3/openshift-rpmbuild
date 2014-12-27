@@ -90,7 +90,7 @@ error: Failed build dependencies:
 	rubygem-openshift-origin-console is needed by openshift-origin-console-1.16.3-1.el6.noarch
 ````
 
-3. Check why did your build fail
+##### 3. Check why did your build fail
 
 
 Extra: Use Dokcer for package build
