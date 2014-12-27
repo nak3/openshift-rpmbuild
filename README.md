@@ -3,8 +3,6 @@ openshift-rpmbuild
 
 The script to build openshift RPM/SRPM packages
 
-![Screen Sample](/.misc/openshift-rpmbuild.png)
-
 Tested Environment
 -----
 * CentOS release 6.6 (Final)
