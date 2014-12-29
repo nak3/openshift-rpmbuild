@@ -104,7 +104,7 @@ Extra: Use Dokcer for package build
 ###### Use docker file in docker
 
 ````
-cd docker && docker build -t openshift_build
+cd docker && docker build -t openshift_build .
 ````
 
 ````
