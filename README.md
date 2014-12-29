@@ -29,6 +29,12 @@ yum -y install tar git createrepo rpm-build scl-utils-build ruby193-build jpacka
 yum -y install golang
 ```
 
+#### NOTE: epel for RHEL 6
+```
+# wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+# rpm -ivh epel-release-6-8.noarch.rpm
+```
+
 ##### 3. Clone this repository and copy scpript to OpenShift source diretory
 ```
 git clone https://github.com/nak3/openshift-rpmbuild.git
@@ -108,5 +114,5 @@ cd docker && docker build -t openshift_build .
 ````
 
 ````
-docker run -t -i openshift_build_rhel  /bin/bash
+docker run -t -i openshift_build  /bin/bash
 ````
