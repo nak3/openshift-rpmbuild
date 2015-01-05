@@ -23,7 +23,7 @@ showusage() {
   echo "Options:"
   echo "  -s                     build SRPM only"
   echo "  -r                     show build result"
-  echo "  -D <OPENSHIFT_SRC>     specify to search OpenShift source code home directory. default value is current direcotry"
+  echo "  -D <OPENSHIFT_SRC>     specify to search OpenShift source code home directory. default value is current directory"
   exit 1
 }
 
@@ -54,7 +54,7 @@ shift $((OPTIND - 1))
 PKGNAME=$1
 
 if [ $# -lt 1 ];then
-  echo "[ERROR] Unsufficient arguments"
+  echo "[ERROR] Insufficient arguments"
   echo ""
   showusage
 fi
