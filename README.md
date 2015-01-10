@@ -116,3 +116,5 @@ cd docker && docker build -t openshift_build .
 ````
 docker run -t -i openshift_build  /bin/bash
 ````
+
+You can find rpm packages in `/tmp/tmp.repos/RPMS/`
